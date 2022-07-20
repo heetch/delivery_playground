@@ -12,3 +12,8 @@ on:
     types:
       - requested
 
+jobs:
+  dummy:
+    steps:
+      - name: dummy
+        run: echo dummy
