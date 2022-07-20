@@ -3,12 +3,10 @@ name: deploy
 on:
   workflow_run:
     workflows:
-      - project1
+      - ./.github/workflows/go.yml
     types:
       - completed
     branches: [ "*" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   deploy:
