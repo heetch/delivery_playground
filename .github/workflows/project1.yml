@@ -7,13 +7,9 @@ on:
       - project1/**
   pull_request:
     branches: [ "main" ]
-  workflow_run:
-    workflows: [ "go" ]
-    types:
-      - requested
 
 jobs:
-  dummy:
-    steps:
-      - name: dummy
-        run: echo dummy
+  go_workflow:
+    uses: ./.github/workflows/go.yml
+    with:
+      directory: project1
