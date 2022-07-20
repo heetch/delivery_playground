@@ -1,15 +1,5 @@
 name: go
 
-on:
-  workflow_call:
-    inputs:
-      directory:
-        required: true
-        type: string
-defaults:
-  run:
-    working-directory: ${{ inputs.directory }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
