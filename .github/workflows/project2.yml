@@ -4,13 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - project1/**
+      - project2/**
   pull_request:
     branches: [ "main" ]
-
-defaults:
-  run:
-    working-directory: project2
+    paths:
+      - project2/**
 
 jobs:
   go_workflow:
