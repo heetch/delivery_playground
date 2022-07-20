@@ -15,5 +15,12 @@ jobs:
     uses: ./.github/workflows/go.yml
     with:
       directory: project2
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep
+        run: sleep 60
+    needs:
+      - go_workflow
 
 
