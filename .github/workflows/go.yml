@@ -10,23 +10,23 @@ on:
 
 jobs:
   build:
+    defaults:
+      run:
+        working-directory:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: 1.18
 
       - name: Build
+        working-directory: ${{ inputs.directory }}
         run:  |
-          echo $PWD
-          pwd
-          cd ${{ inputs.directory }}
           go build -v ./...
 
       - name: Test
+        working-directory: ${{ inputs.directory }}
         run: |
-          cd ${{ inputs.directory }}
           go test -v ./...
