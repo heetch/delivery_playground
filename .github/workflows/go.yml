@@ -2,6 +2,10 @@ name: go
 
 on:
   workflow_call:
+    inputs:
+      directory:
+        required: true
+        type: string
 
 
 jobs:
