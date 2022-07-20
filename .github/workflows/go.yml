@@ -6,15 +6,6 @@ on:
       directory:
         required: true
         type: string
-  push:
-    branches: [ "main" ]
-    paths:
-      - ${{ inputs.directory }}/**
-    pull_request:
-      branches: [ "main" ]
-      paths:
-        - ${{ inputs.directory }}/**
-
 
 jobs:
   build:

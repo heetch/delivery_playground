@@ -1,10 +1,10 @@
-name: project2
+name: project3
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - project2/**
+      - project/**
   pull_request:
     branches: [ "main" ]
     paths:
