@@ -1,15 +1,14 @@
 name: project1
 
 on:
-  workflow_run:
-#  push:
-#    branches: [ "main" ]
-#    paths:
-#      - project1/**
-#  pull_request:
-#    branches: [ "main" ]
-#    paths:
-#      - project1/**
+  push:
+    branches: [ "main" ]
+    paths:
+      - project1/**
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - project1/**
 
 
 jobs:
