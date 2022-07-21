@@ -1,0 +1,27 @@
+name: e2e-project
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        type: string
+        required: true
+      is_service_call:
+        type: boolean
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            ${{ inputs.path }}/**
+
+      # if service AND tests are modified, ONLY run tests that are NOT service call
+      - run: |
+          echo running tests on fodler ${{ inputs.path }}
+          ls ${{ inputs.path }}
+        if: ${{ !inputs.is_service_call || !env.GIT_DIFF }}

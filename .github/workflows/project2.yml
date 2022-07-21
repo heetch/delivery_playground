@@ -2,11 +2,11 @@ name: project2
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
       - src/services/project2/**
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
       - src/services/project2/**
 
@@ -15,6 +15,11 @@ jobs:
     uses: ./.github/workflows/go.yml
     with:
       directory: src/services/project2
+  e2e_project2:
+    uses: ./.github/workflows/e2e-project.yml
+    with:
+      path: src/tests/e2e/project2
+      is_service_call: true
   sleep:
     runs-on: ubuntu-latest
     steps:
@@ -22,5 +27,3 @@ jobs:
         run: sleep 60
     needs:
       - go_workflow
-
-
