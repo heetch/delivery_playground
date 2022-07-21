@@ -2,17 +2,21 @@ name: project1
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - project1/**
+      - src/services/project1/**
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - project1/**
-
+      - src/services/project1/**
 
 jobs:
   go_workflow:
     uses: ./.github/workflows/go.yml
     with:
-      directory: project1
+      directory: src/services/project1
+  e2e_project1:
+    uses: ./.github/workflows/e2e-project.yml
+    with:
+      path: src/tests/e2e/project1
+      is_service_call: true

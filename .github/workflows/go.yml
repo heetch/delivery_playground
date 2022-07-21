@@ -19,7 +19,7 @@ jobs:
 
       - name: Build
         working-directory: ${{ inputs.directory }}
-        run:  |
+        run: |
           go build -v ./...
 
       - name: Test
