@@ -3,7 +3,7 @@ name: wait-deploy
 on:
   workflow_run:
     workflows:
-      - .github/workflows/go.yml
+      - project*
     types:
       - completed
     branches:
