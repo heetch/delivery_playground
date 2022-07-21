@@ -1,4 +1,4 @@
-name: deploy
+name: wait-deploy
 
 on:
   workflow_run:
@@ -8,6 +8,7 @@ on:
       - completed
     branches:
       - "*"
+  workflow_dispatch:
 
 jobs:
   deploy:
