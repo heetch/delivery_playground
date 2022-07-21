@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Wait for go_workflow to succeed
-        uses: fountainhead/action-wait-for-check@v1
-        id: wait-for-go_workflow
+      - name: Pause until all workflows are completed
+        uses: willgarcia/workflow-wait-action@2d07bb061039e4b7705e303f734963a9cf93a092
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "* / go_workflow / *"
+          workflows: |
+            go_workflow
 
       - name: dummy
-        run: echo deploying
-        if: steps.wait-for-go_workflow.outputs.conclusion == 'success'
+        run: |
+          echo deploying
+          date
