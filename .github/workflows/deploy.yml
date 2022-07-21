@@ -1,15 +1,13 @@
 name: deploy
 
 on:
-#  workflow_run:
-#    workflows:
-#      - ./.github/workflows/go.yml
-#    types:
-#      - completed
-#    branches: [ "*" ]
-  pull_request:
+  workflow_run:
+    workflows:
+      - ./.github/workflows/go.yml
+    types:
+      - completed
     branches:
-      - main
+      - "*"
 
 jobs:
   deploy:
