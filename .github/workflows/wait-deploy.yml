@@ -17,7 +17,7 @@ jobs:
         id: wait-for-go_workflow
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: go_workflow
+          checkName: "* / go_workflow / *"
 
       - name: dummy
         run: echo deploying
