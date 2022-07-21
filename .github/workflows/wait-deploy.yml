@@ -1,13 +1,10 @@
 name: wait-deploy
 
 on:
-  workflow_run:
-    workflows:
-      - project*
-    types:
-      - completed
-    branches:
-      - "*"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - src/services/**
   workflow_dispatch:
 
 jobs:
@@ -15,5 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Wait for go_workflow to succeed
+        uses: fountainhead/action-wait-for-check@v1
+        id: wait-for-go_workflow
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: go_workflow
+
       - name: dummy
         run: echo deploying
+        if: steps.wait-for-go_workflow.outputs.conclusion == 'success'
