@@ -4,17 +4,17 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - project2/**
+      - src/services/project2/**
   pull_request:
     branches: [ "main" ]
     paths:
-      - project2/**
+      - src/services/project2/**
 
 jobs:
   go_workflow:
     uses: ./.github/workflows/go.yml
     with:
-      directory: project2
+      directory: src/services/project2
   sleep:
     runs-on: ubuntu-latest
     steps:
